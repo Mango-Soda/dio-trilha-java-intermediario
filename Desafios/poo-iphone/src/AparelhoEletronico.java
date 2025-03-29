@@ -55,6 +55,11 @@ public class AparelhoEletronico {
             return;
         }
 
+        if (mensagensDeVoz.size() < 0) {
+            System.out.println("Nenhuma mensagem de voz encontrada.");
+            return;
+        }
+
         System.out.println("Você tem mensagens de voz:");
         for (Map.Entry<String, String> entry : mensagensDeVoz.entrySet()) {
             System.out.println("Contato: " + entry.getKey() + "\nMensagem: " + entry.getValue());
