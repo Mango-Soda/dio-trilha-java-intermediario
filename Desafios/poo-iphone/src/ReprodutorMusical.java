@@ -1,22 +1,13 @@
-public class ReprodutorMusical {
+public class ReprodutorMusical extends AparelhoEletronico {
     private boolean tocarMusica;
-    AparelhoEletronico aparelhoEletronico;
 
-    public ReprodutorMusical(AparelhoEletronico aparelhoEletronico) {
+    public ReprodutorMusical() {
+        super();
         this.tocarMusica = false;
-        this.aparelhoEletronico = aparelhoEletronico;
-    }
-
-    public boolean verificarDisponibilidade() {
-        if (!aparelhoEletronico.isLigado()) {
-            System.out.println("O aparelho está desligado. Não é possível realizar a ação.");
-            return false;
-        }
-        return true;
     }
 
     public boolean tocar() {
-        if (!verificarDisponibilidade()) {
+        if (!isLigado()) {
             System.out.println("O aparelho não pode reproduzir música, pois está desligado.");
             return false;
         }

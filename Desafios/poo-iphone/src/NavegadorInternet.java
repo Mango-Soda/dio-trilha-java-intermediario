@@ -1,19 +1,18 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class NavegadorInternet {
+public class NavegadorInternet extends AparelhoEletronico{
     private List<Integer> abas;
     private String pagina;
-    private AparelhoEletronico aparelhoEletronico;
 
     public NavegadorInternet(AparelhoEletronico aparelhoEletronico) {
+        super();
         this.abas = new ArrayList<>();
         this.pagina = null;
-        this.aparelhoEletronico = aparelhoEletronico;
     }
 
     public void exibirPagina() {
-        if (!aparelhoEletronico.isLigado()) {
+        if (!isLigado()) {
             System.out.println("O aparelho não está ligado. Não é possível exibir a página.");
             return;
         }
@@ -22,21 +21,11 @@ public class NavegadorInternet {
     }
 
     public void adicionarNovaAba() {
-        if (!aparelhoEletronico.getConexao()) {
-            System.out.println("Falha na conexão. Não é possível adicionar a aba.");
-            return;
-        }
-
         abas.add(abas.size(), 1);
         System.out.printf("Nova aba adicionada. Total de abas: %d\n", abas.size());
     }
 
     public void atualizarPagina() {
-        if (!aparelhoEletronico.getConexao()) {
-            System.out.println("Falha na conexão. Não é possível atualizar a página.");
-            return;
-        }
-
         if (pagina == null) {
             System.out.println("Página não encontrada.");
         } else {
@@ -60,11 +49,6 @@ public class NavegadorInternet {
 
     public List<Integer> getAbas() {
         return new ArrayList<>(abas);
-    }
-
-    public void adicionarAba(Integer aba) {
-        abas.add(aba);
-        System.out.printf("Aba %d adicionada. Total de abas: %d\n", aba, abas.size());
     }
 }
 
