@@ -31,6 +31,10 @@ public class AparelhoEletronico implements Smartphone.interfaces.Ligavel {
         return ligado;
     }
 
+    public boolean isChamadoRecebido() {
+        return chamadoRecebido;
+    }
+    
     public void receberChamada() {
         if (!ligado) {
             System.out.println("O telefone está desligado. Ligue antes de atender.");
