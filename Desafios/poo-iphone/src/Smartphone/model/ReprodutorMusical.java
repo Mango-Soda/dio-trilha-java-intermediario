@@ -1,4 +1,4 @@
-package model;
+package Smartphone.model;
 
 public class ReprodutorMusical extends AparelhoEletronico {
     private boolean tocarMusica;

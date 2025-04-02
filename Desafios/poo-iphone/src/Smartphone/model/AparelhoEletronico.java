@@ -1,9 +1,9 @@
-package model;
+package Smartphone.model;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class AparelhoEletronico implements interfaces.Ligavel {
+public class AparelhoEletronico implements Smartphone.interfaces.Ligavel {
     private boolean ligado;
     private boolean chamadoRecebido;
     private Map<String, String> mensagensDeVoz;
