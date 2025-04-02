@@ -1,7 +1,9 @@
+package model;
+
 import java.util.HashMap;
 import java.util.Map;
 
-public class AparelhoEletronico {
+public class AparelhoEletronico implements interfaces.Ligavel {
     private boolean ligado;
     private boolean chamadoRecebido;
     private Map<String, String> mensagensDeVoz;
@@ -12,16 +14,19 @@ public class AparelhoEletronico {
         this.mensagensDeVoz = new HashMap<>();
     }
 
+    @Override
     public void ligar() {
         this.ligado = true;
         System.out.printf("O aparelho foi %s.\n", (ligado ? "ligado" : "já está ligado"));
     }
 
+    @Override
     public void desligar() {
         this.ligado = false;
         System.out.printf("O aparelho foi %s.\n", (ligado ? "desligado" : "já está desligado"));
     }
 
+    @Override
     public boolean isLigado() {
         return ligado;
     }
