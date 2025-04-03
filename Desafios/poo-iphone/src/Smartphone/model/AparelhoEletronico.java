@@ -2,7 +2,7 @@ package smartphone.model;
 
 import smartphone.service.ChamadaService;
 import smartphone.service.CorreioVozService;
-import smartphone.service.Ligavel;
+import smartphone.interfaces.Ligavel;
 
 public class AparelhoEletronico implements Ligavel {
     private boolean ligado;
