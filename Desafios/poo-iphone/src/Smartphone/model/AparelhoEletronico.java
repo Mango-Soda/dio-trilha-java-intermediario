@@ -1,29 +1,36 @@
-package Smartphone.model;
+package smartphone.model;
 
-import java.util.HashMap;
-import java.util.Map;
+import smartphone.service.ChamadaService;
+import smartphone.service.CorreioVozService;
+import smartphone.service.Ligavel;
 
-public class AparelhoEletronico implements Smartphone.interfaces.Ligavel {
+public class AparelhoEletronico implements Ligavel {
     private boolean ligado;
-    private boolean chamadoRecebido;
-    private Map<String, String> mensagensDeVoz;
+    private ChamadaService chamadaService;
+    private CorreioVozService correioVozService;
 
     public AparelhoEletronico() {
         this.ligado = false;
-        this.chamadoRecebido = false;
-        this.mensagensDeVoz = new HashMap<>();
     }
 
     @Override
     public void ligar() {
-        this.ligado = true;
-        System.out.printf("O aparelho foi %s.\n", (ligado ? "ligado" : "já está ligado"));
+        if (!ligado) {
+            this.ligado = true;
+            System.out.println("O aparelho foi ligado.");
+        } else {
+            System.out.println("O aparelho já está ligado.");
+        }
     }
 
     @Override
     public void desligar() {
-        this.ligado = false;
-        System.out.printf("O aparelho foi %s.\n", (ligado ? "desligado" : "já está desligado"));
+        if (ligado) {
+            this.ligado = false;
+            System.out.println("O aparelho foi desligado.");
+        } else {
+            System.out.println("O aparelho já está desligado.");
+        }
     }
 
     @Override
@@ -31,47 +38,19 @@ public class AparelhoEletronico implements Smartphone.interfaces.Ligavel {
         return ligado;
     }
 
-    public boolean isChamadoRecebido() {
-        return chamadoRecebido;
-    }
-    
     public void receberChamada() {
-        if (!ligado) {
-            System.out.println("O telefone está desligado. Ligue antes de atender.");
-            return;
-        }
-
-        chamadoRecebido = true;
-        System.out.println("Chamada recebida.");
+        chamadaService.receberChamada(this);
     }
 
-    public void atender() {
-        if (chamadoRecebido) {
-            System.out.println("Chamada recebida.");
-        } else {
-            System.out.println("Sem chamada para atender.");
-        }
+    public void atenderChamada() {
+        chamadaService.atender(this);
     }
 
     public void encerrarChamada() {
-        chamadoRecebido = false;
-        System.out.println("Chamada encerrada.");
+        chamadaService.encerrarChamada(this);
     }
 
     public void iniciarCorreioVoz() {
-        if (!ligado) {
-            System.out.println("O telefone está desligado. Não há mensagens de voz disponíveis.");
-            return;
-        }
-
-        if (mensagensDeVoz.size() < 0) {
-            System.out.println("Nenhuma mensagem de voz encontrada.");
-            return;
-        }
-
-        System.out.println("Você tem mensagens de voz:");
-        for (Map.Entry<String, String> entry : mensagensDeVoz.entrySet()) {
-            System.out.println("Contato: " + entry.getKey() + "\nMensagem: " + entry.getValue());
-        }
+        correioVozService.iniciarCorreioVoz(this);
     }
 }

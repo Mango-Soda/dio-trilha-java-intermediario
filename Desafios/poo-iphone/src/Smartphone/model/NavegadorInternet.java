@@ -1,55 +1,40 @@
-package Smartphone.model;
+package smartphone.model;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class NavegadorInternet extends AparelhoEletronico{
-    private List<Integer> abas;
-    private String pagina;
+public class NavegadorInternet extends AparelhoEletronico {
+    private String paginaAtual;
+    private List<String> abas;
 
-    public NavegadorInternet(AparelhoEletronico aparelhoEletronico) {
+    public NavegadorInternet() {
         super();
-        this.abas = new ArrayList<>();
-        this.pagina = null;
+        abas = new ArrayList<>();
     }
 
     public void exibirPagina() {
-        if (!isLigado()) {
-            System.out.println("O aparelho não está ligado. Não é possível exibir a página.");
-            return;
-        }
-
-        System.out.printf("Exibindo página: %s\n", (pagina != null ? pagina : "Página não encontrada"));
+        System.out.println("Exibindo a página: " + paginaAtual);
     }
 
-    public void adicionarNovaAba() {
-        abas.add(abas.size(), 1);
-        System.out.printf("Nova aba adicionada. Total de abas: %d\n", abas.size());
+    public void adicionarNovaAba(String pagina) {
+        abas.add(pagina);
+        this.paginaAtual = pagina;
+        System.out.println("Nova aba adicionada: " + pagina);
     }
 
     public void atualizarPagina() {
-        if (pagina == null) {
-            System.out.println("Página não encontrada.");
-        } else {
-            System.out.println("Atualizando página...");
-            System.out.printf("Página: %s\n", pagina);
-        }
+        System.out.println("Página atualizada: " + paginaAtual);
     }
 
-    public String getPagina() {
-        return pagina;
+    public String getPaginaAtual() {
+        return paginaAtual;
     }
 
-    public void setPagina(String pagina) {
-        if (pagina != null && !pagina.isEmpty()) {
-            this.pagina = pagina;
-            System.out.printf("Página definida: %s\n", pagina);
-        } else {
-            System.out.println("Página não encontrada.");
-        }
+    public void setPaginaAtual(String paginaAtual) {
+        this.paginaAtual = paginaAtual;
     }
 
-    public List<Integer> getAbas() {
-        return new ArrayList<>(abas);
+    public List<String> getAbas() {
+        return abas;
     }
 }
-

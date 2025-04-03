@@ -1,4 +1,4 @@
-package Smartphone.interfaces;
+package smartphone.service;
 
 public interface Ligavel {
     void ligar();
