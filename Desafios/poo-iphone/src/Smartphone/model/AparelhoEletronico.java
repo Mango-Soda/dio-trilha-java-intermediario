@@ -13,6 +13,14 @@ public class AparelhoEletronico implements Ligavel {
         this.ligado = false;
     }
 
+    public void setCorreioVozService(CorreioVozService correioVozService) {
+        this.correioVozService = correioVozService;
+    }
+
+    public void setChamadaService(ChamadaService chamadaService) {
+        this.chamadaService = chamadaService;
+    }
+
     @Override
     public void ligar() {
         if (!ligado) {

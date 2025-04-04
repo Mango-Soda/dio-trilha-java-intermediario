@@ -1,36 +1,26 @@
 package smartphone;
 
 import smartphone.model.AparelhoEletronico;
+import smartphone.service.ChamadaService;
+import smartphone.service.CorreioVozService;
 
 public class Main {
     public static void main(String[] args) {
+        // Criando instâncias dos serviços e do aparelho eletrônico
         AparelhoEletronico aparelho = new AparelhoEletronico();
-        
-        // Testando o método ligar
-        aparelho.ligar(); // O aparelho foi ligado.
-        aparelho.ligar(); // O aparelho já está ligado.
+        ChamadaService chamadaService = new ChamadaService();
+        CorreioVozService correioVozService = new CorreioVozService();
 
-        // Testando o método desligar
-        aparelho.desligar(); // O aparelho foi desligado.
-        aparelho.desligar(); // O aparelho já está desligado.
+        // Configurando os serviços no aparelho
+        aparelho.setChamadaService(chamadaService);
+        aparelho.setCorreioVozService(correioVozService);
 
-        // Testando o método isLigado
-        System.out.println("O aparelho está ligado? " + aparelho.isLigado()); // false
-
-        // Testando o método receberChamada
-        aparelho.receberChamada(); // O aparelho está desligado. Não é possível receber chamadas.
-
-        // Ligando o aparelho para testar receberChamada
+        // Testando o funcionamento do aparelho
+        System.out.println("Testando o funcionamento do aparelho:");
         aparelho.ligar();
-        aparelho.receberChamada(); // Recebendo chamada...
-
-        // Testando o método atenderChamada
-        aparelho.atenderChamada(); // Atendendo chamada...
-
-        // Testando o método encerrarChamada
-        aparelho.encerrarChamada(); // Encerrando chamada...
-
-        // Testando o método iniciarCorreioVoz
-        aparelho.iniciarCorreioVoz(); // Iniciando o correio de voz...
+        aparelho.receberChamada();
+        aparelho.atenderChamada();
+        aparelho.encerrarChamada();
+        aparelho.desligar();  
     }
 }
