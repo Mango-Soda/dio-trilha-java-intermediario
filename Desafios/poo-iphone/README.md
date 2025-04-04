@@ -1,27 +1,14 @@
-## POO iPhone  
-Desafio de programação orientada a objetos da DIO.  
+# Desafio de POO iPhone - DIO
 
-### Como Funciona?  
-O projeto simula um **smartphone** com classes que possuem comportamentos próprios, mas que se complementam.  
+## Projeto
 
-### Classes  
+Este projeto simula funções de um iPhone usando Programação Orientada a Objetos (POO) com Java.
 
-- **AparelhoEletronico**: Base para o smartphone. Funções: ligar, desligar, receber e atender chamadas, correio de voz.  
-- **NavegadorInternet**: Funções: exibir página, adicionar abas e atualizar página.  
-- **ReprodutorMusical**: Funções: tocar, pausar e selecionar músicas.  
+## Funcionalidades
 
-### Services  
-
-- **ChamadaService**: Gerencia chamadas telefônicas.  
-- **CorreioVozService**: Controla o correio de voz.  
-
-### Interface  
-
-- **Ligavel**: Define os métodos `ligar()`, `desligar()` e `isLigado()`.  
-
-### Tecnologias  
-
-- Java  
-- Programação Orientada a Objetos (POO)  
+1. **Navegador de Internet**: exibir página, adicionar aba e atualizar página.
+2. **Aparelho Telefônico**: ligar, atender e acessar correio de voz.
+3. **Reprodutor Musical**: selecionar música, tocar e pausar.
+4. **Classe IPhone**: integra todas as funções simulando um smartphone.
 
 
