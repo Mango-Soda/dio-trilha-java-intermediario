@@ -1,26 +1,26 @@
 package smartphone;
 
-import smartphone.model.AparelhoEletronico;
-import smartphone.service.ChamadaService;
-import smartphone.service.CorreioVozService;
+import smartphone.models.Iphone;
 
 public class Main {
     public static void main(String[] args) {
-        // Criando instâncias dos serviços e do aparelho eletrônico
-        AparelhoEletronico aparelho = new AparelhoEletronico();
-        ChamadaService chamadaService = new ChamadaService();
-        CorreioVozService correioVozService = new CorreioVozService();
+        // Criando uma instância do Iphone
+        Iphone iphone = new Iphone();
 
-        // Configurando os serviços no aparelho
-        aparelho.setChamadaService(chamadaService);
-        aparelho.setCorreioVozService(correioVozService);
+        // Testando as funcionalidades do Iphone
+        iphone.ligar("1234567890");
+        iphone.atender();
+        iphone.correioDeVoz();
 
-        // Testando o funcionamento do aparelho
-        System.out.println("Testando o funcionamento do aparelho:");
-        aparelho.ligar();
-        aparelho.receberChamada();
-        aparelho.atenderChamada();
-        aparelho.encerrarChamada();
-        aparelho.desligar();  
+        iphone.tocarMusica("Minha Música Favorita");
+        iphone.pausarMusica();
+        iphone.adicionarMusica("Outra Música Favorita");
+        iphone.tocarMusica("Outra Música Favorita");
+        iphone.pausarMusica();
+
+        iphone.exibirPagina("https://www.example.com");
+        iphone.adicionarAba("https://www.example.com/aba2");
+        iphone.atualizarPagina("https://www.example.com/aba2");
+
     }
 }
